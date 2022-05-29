@@ -1,4 +1,4 @@
--- EXOILE
+-- EXOILE V1
 -- SAY ,CMDS FOR A LIST OF COMMANDS
 -- MADE WITH CARE
 
@@ -11,7 +11,7 @@ local locked = false
 
 function sendnotif(msg)
   game.StarterGui:SetCore("SendNotification", {
-      Title = "Exoile";
+      Title = "Exoile V1";
       Text = msg;
       Duration = 3;
       })
@@ -139,11 +139,11 @@ for i, pad in pairs(pads) do
 end
 locked = true
 while locked == true do
-  command("h server has been locked by exoile.")
+  command("h server has been locked by Exoile V1.")
   wait(0.1)
   command("punish others")
   wait(0.1)
-  command("pm others server has been locked by exoile, please join a new server.")
+  command("pm others server has been locked by Exoile V1, please join a new server.")
 end
 wait(0.1)
 sendnotif("Locked server.")
