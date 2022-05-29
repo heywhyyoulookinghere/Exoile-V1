@@ -94,7 +94,6 @@ end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 10) == prefix.."spamreset" then
-   wait(0.1)
    spamreset = true
    wait(0.1)
    sendnotif("Now spamming the regen button.")
@@ -103,7 +102,6 @@ end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 9) == prefix.."stopspam" then
-   wait(0.1)
    spamreset = false
    wait(0.1)
    sendnotif("Stopped spamming the regen.")
