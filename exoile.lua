@@ -4,7 +4,7 @@
 
 local command = function(...)game.Players:Chat(...)end
 local chat = function(...)game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(...,"All")end
-local prefix = ","
+local prefix = ":"
 local hidemusicid = string.rep(0,700)
 local spamreset = false
 
