@@ -126,7 +126,7 @@ while takeallpads == true do
    wait()
    local pads = Workspace.Terrain._Game.Admin.Pads:GetChildren("Head")
 for i, pad in pairs(pads) do
-if not pad.Parent.Name == game.Players.LocalPlayer.Name"'s admin" then
+if not pad.Parent.Name == game.Players.LocalPlayer"'s admin" then
    regen()
    pad.PrimaryPart = pad:FindFirstChild("Head")
    local pos = pad.PrimaryPart.CFrame
