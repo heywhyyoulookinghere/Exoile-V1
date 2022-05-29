@@ -75,7 +75,7 @@ if string.sub(msg:lower(), 0, 10) == prefix.."spamregen" then
    spamreset = true
 while spamreset == true do
     wait()
-    regen()
+    fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
 end
 end
 end)
