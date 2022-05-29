@@ -155,7 +155,7 @@ if string.sub(msg:lower(), 0, 9) == prefix.."takeover" then
    wait(0.1)
    takeover = true
 while takeover == true do
-  wait()
+  wait(0.1)
   command("punish others")
   command("blind others")
   command("h taken over by exoile")
