@@ -9,6 +9,11 @@ local hidemusicid = string.rep(0,700)
 local spamreset = false
 local takeallpads = false
 
+game.Players.PlayerAdded:Connect(function(player)
+   wait(1)
+   command("h "..player.Name.." has joined the server!")
+end)
+
 function sendnotif(msg)
   game.StarterGui:SetCore("SendNotification", {
       Title = "Exoile";
