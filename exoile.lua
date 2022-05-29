@@ -74,7 +74,7 @@ end)
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 7) == prefix.."server" then
    wait(0.1)
-   sendnotif("discord here")
+   sendnotif("join our lovely server! discord.gg/5yyrFGAyDC")
 end
 end)
 
