@@ -33,6 +33,13 @@ function dropdiscord()
 end
 end
 
+function clearlogs()
+  for i = 1,100 do
+    wait()
+    command("ff stinky winky xd")
+end
+end
+
 game.Players.LocalPlayer.Chatted:connect(function(msg)
 if string.sub(msg:lower(), 0, 8) == prefix.."prefix " then
    prefix = string.sub(msg:lower(), 9, 9)
