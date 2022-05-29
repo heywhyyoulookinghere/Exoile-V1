@@ -143,8 +143,6 @@ while takeover = true do
    command("blind others")
    command("h you are currently being taken over by exoile.")
 end
-wait(0.1)
-sendnotif("Takeover done.")
 end
 end)
 
