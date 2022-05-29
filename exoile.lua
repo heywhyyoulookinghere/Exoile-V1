@@ -136,6 +136,7 @@ if string.sub(msg:lower(), 0, 5) = prefix.."lock" then
    wait(0.1)
    regen()
    wait(0.1)
+   lock = true
 local pads = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:GetChildren("Head")
 for i, pad in pairs(pads) do
    pad.PrimaryPart = pad:FindFirstChild("Head")
@@ -147,10 +148,6 @@ for i, pad in pairs(pads) do
    pad:SetPrimaryPartCFrame(pos)
    pad.PrimaryPart.CanCollide = true
    wait(0)
-end
-    wait(0.1)
-if not lock then
-   lock = true
 end
 while lock == true do
     wait(0.1)
@@ -167,9 +164,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 7) == prefix.."unlock" then
    sendnotif("Unlocking server.")
    wait(0.1)
-if lock then
    lock = false
-end
    wait(0.1)
    command("reset all")
    wait(0.1)
