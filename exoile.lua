@@ -153,8 +153,5 @@ if string.sub(msg:lower(), 0, 13) == prefix.."stoptakeover" then
 sendnotif("Stopping takeover.")
 wait(0.1)
 takeover = false
-command("unpunish all")
-command("unblind all")
-command("respawn all")
 end
 end)
