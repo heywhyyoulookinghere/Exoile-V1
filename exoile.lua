@@ -154,9 +154,8 @@ if string.sub(msg:lower(), 0, 9) == prefix.."takeover" then
    wait(0.1)
    takeover()
    wait(0.1)
-   if not takeover then
+if not takeover then
    takeover = true
-   end
 while takeover == true do
   wait(0.1)
   command("h taken over by exoile")
@@ -167,20 +166,20 @@ while takeover == true do
   wait(0.1)
 end
 end
+end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 13) == prefix.."stoptakeover" then
    sendnotif("Fixing server.")
    wait(0.1)
-   if takeover then
+if takeover then
    takeover = false
-   end
    wait(0.1)
    command("unblind all")
    wait(0.1)
    command("reset all")
-   wait(0.1)
    regen()
+end
 end
 end)
