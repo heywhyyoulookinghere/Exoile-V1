@@ -17,23 +17,6 @@ function sendnotif(msg)
       })
 end
 
-function takeover()
-   wait(0.1)
-   local pads = Workspace.Terrain._Game.Admin.Pads:GetChildren("Head")
-for i, pad in pairs(pads) do
-   regen()
-   wait(0.1)
-   pad.PrimaryPart = pad:FindFirstChild("Head")
-   local pos = pad.PrimaryPart.CFrame
-   wait()
-   pad.PrimaryPart.CanCollide = false
-   pad:SetPrimaryPartCFrame(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
-   wait()
-   pad:SetPrimaryPartCFrame(pos)
-   pad.PrimaryPart.CanCollide = true
-end 
-end
-
 function regen()
 fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
 end
@@ -153,7 +136,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 9) == prefix.."takeover" then
 sendnotif("Taking over server.")
 wait(0.1)
-takeover()
+chat(prefix.."allpads")
 wait(0.1)
 takeover = true
 while takeover = true do
