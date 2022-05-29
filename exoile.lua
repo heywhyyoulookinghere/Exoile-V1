@@ -64,8 +64,7 @@ if string.sub(msg:lower(), 0, 5) == prefix.."cmds" then
    print("dascard -- sends you the discord")
    print("spamregen -- spams the regen button")
    print("stopspam -- stops spamming the regen button")
-   print("loopallpads -- loop grabs all pads.")
-   print("stopallpads -- stops loop on pads.")
+   print("allpads -- grabs all pads.")
    wait(0.1)
    sendnotif("Please check console for current commands.")
 end
@@ -116,16 +115,12 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 12) == prefix.."loopallpads" then
+if string.sub(msg:lower(), 0, 12) == prefix.."allpads" then
    sendnotif("Getting all pads.")
    wait(0.1)
    regen()
    wait(0.1)
-   takeallpads = true
-while takeallpads == true do
-   wait()
    local pads = Workspace.Terrain._Game.Admin.Pads:GetChildren("Head")
-if not pad.Parent.Name == game.Players.LocalPlayer.Name"'s admin" then
 for i, pad in pairs(pads) do
    pad.PrimaryPart = pad:FindFirstChild("Head")
    local pos = pad.PrimaryPart.CFrame
@@ -137,15 +132,5 @@ for i, pad in pairs(pads) do
    pad.PrimaryPart.CanCollide = true
    wait()
 end
-end
-end
-end
-end)
-
-game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 12) == prefix.."stopallpads" then
-   sendnotif("Stopped getting all pads.")
-   wait(0.1)
-   takeallpads = false
 end
 end)
