@@ -42,6 +42,13 @@ if string.sub(msg:lower(), 0, 5) == prefix.."cmds" then
    print("allpads -- grabs all pads")
    print("lock -- locks the server")
    print("unlock -- unlocks the server")
+   print("house -- tps you to the house")
+   print("pads -- tps you to the pads")
+   print("move -- moves anything you're near")
+   print("movebp -- moves the bp")
+   print("regen -- regens the pads")
+   print("rj -- forces you to rejoin")
+   print("clearlogs -- clears the logs")
    wait(0.1)
    sendnotif("Please check console for current commands.")
 end
@@ -156,5 +163,86 @@ fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.Clic
 wait(0.1)
 sendnotif("Unlocked server.")
 wait(0.1)
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(msg)
+if string.sub(msg, 0, 4) == prefix.."rj" then 
+wait(0.1)
+local place = game:GetService("TeleportService")
+local player = game:GetService("Players").LocalPlayer
+place:Teleport(game.PlaceId, player)
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(msg)
+if string.sub(msg:lower(), 0, 7) == prefix.."movebp" then 
+wait(0.1)
+sendnotif("Moving the baseplate..")
+command("respawn me")
+wait()
+command("sit me")
+wait(0.9)
+command("punish me")
+wait(0.3)
+command("unpunish me")
+wait(0.1)
+command("skydive me")
+wait(0.1)
+command("reset me")
+wait(0.1)
+clearlogs()
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(msg)
+if string.sub(msg:lower(), 0, 6) == prefix.."move" then 
+wait(0.1)
+sendnotif("Moving object near you.")
+wait()
+command("sit me")
+wait(0.9)
+command("punish me")
+wait(0.3)
+command("unpunish me")
+wait(0.1)
+command("skydive me")
+wait(0.1)
+command("reset me")
+wait(0.1)
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(msg)
+if string.sub(msg:lower(), 0, 10) == prefix.."regen" then 
+wait(0.1)
+sendnotif("Resetting the pads.")
+wait(0.1)
+fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
+wait(0.1)
+sendnotif("Resetted pads.")
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(msg)
+if string.sub(msg:lower(), 0, 5) == prefix.."pads" then
+sendnotif("Tped to pads")
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(-32.7, 8.22999954, 94.5))
+end
+	
+if string.sub(msg:lower(), 0, 6) == prefix.."house" then
+sendnotif("Tped to house")
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(-28.6829948, 8.2299995, 66.4913253))
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(msg)
+if string.sub(msg:lower(), 0, 10) == prefix.."clearlogs" then 
+wait(0.1)
+sendnotif("Clearing the logs...")
+wait(0.1)
+clearlogs()
+wait(0.1)
+sendnotif("Cleared logs.")
 end
 end)
