@@ -7,7 +7,6 @@ local chat = function(...)game.ReplicatedStorage.DefaultChatSystemChatEvents.Say
 local prefix = ","
 local hidemusicid = string.rep(0,700)
 local spamreset = false
---local takeover = false
 
 function sendnotif(msg)
   game.StarterGui:SetCore("SendNotification", {
@@ -60,8 +59,6 @@ if string.sub(msg:lower(), 0, 5) == prefix.."cmds" then
    print("spamregen -- spams the regen button")
    print("stopspam -- stops spamming the regen button")
    print("allpads -- grabs all pads")
-   print("takeover -- takes over the server")
-   print("stoptakeover -- stops taking over server")
    wait(0.1)
    sendnotif("Please check console for current commands.")
 end
@@ -131,25 +128,3 @@ for i, pad in pairs(pads) do
 end
 end
 end)
-
---[[game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 9) == prefix.."takeover" then
-sendnotif("Taking over server.")
-wait(0.1)
-takeover = true
-while takeover = true do
-   wait()
-   command("punish others")
-   command("blind others")
-   command("h you are currently being taken over by exoile.")
-end
-end
-end)]]--
-
---[[game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 13) == prefix.."stoptakeover" then
-sendnotif("Stopping takeover.")
-wait(0.1)
-takeover = false
-end
-end)]]--
