@@ -62,7 +62,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 9) == prefix.."server" then
+if string.sub(msg:lower(), 0, 7) == prefix.."server" then
    wait(0.1)
    sendnotif("discord here")
 end
