@@ -60,7 +60,8 @@ if string.sub(msg:lower(), 0, 5) == prefix.."cmds" then
    print("spamregen -- spams the regen button")
    print("stopspam -- stops spamming the regen button")
    print("allpads -- grabs all pads")
-   print("takeover -- moved to the bottom, you can't reverse it. takes over server")
+   print("takeover -- takes over server")
+   print("stoptakeover -- stops the takeover")
    wait(0.1)
    sendnotif("Please check console for current commands.")
 end
@@ -163,5 +164,17 @@ while takeover == true do
   command("blind others")
   wait(0.1)
 end
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 13) == prefix.."stoptakeover" then
+   sendnotif("Fixing server.")
+   wait(0.1)
+   takeover = false
+   wait(0.1)
+   command("unblind all")
+   wait(0.1)
+   command("reset all")
 end
 end)
