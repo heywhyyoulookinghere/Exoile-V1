@@ -135,7 +135,7 @@ wait(0.1)
 command("respawn others")
 local pads = Workspace.Terrain._Game.Admin.Pads:GetChildren("Head")
 for i, pad in pairs(pads) do
-    pad.PrimaryPart = pad:FindFirstChild("Head")
+   pad.PrimaryPart = pad:FindFirstChild("Head")
    local pos = pad.PrimaryPart.CFrame
    wait(0)
    pad.PrimaryPart.CanCollide = false
@@ -145,7 +145,9 @@ for i, pad in pairs(pads) do
    pad.PrimaryPart.CanCollide = true
    wait(0)
 end
+wait(0.1)
 serverlocked = true
+wait(0.1)
 while serverlocked == true do
    command("h serverlocked by Exoile V1, join another server.")
    wait(0.1)
