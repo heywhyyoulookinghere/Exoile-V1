@@ -81,6 +81,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 7) == prefix.."server" then
    wait(0.1)
    sendnotif("join our lovely server! discord.gg/5yyrFGAyDC")
+   chatdiscord()
 end
 end)
 
@@ -151,7 +152,6 @@ while locked == true do
   wait(0.1)
   command("blind others")
 end
-chatdiscord()
 wait(0.1)
 sendnotif("Locked server.")
 end
