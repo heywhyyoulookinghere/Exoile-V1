@@ -132,7 +132,7 @@ end
 end
 end)
 
-game.Players.LocalPlayer.Chatted:Connect(function(msg)
+--[[game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 9) == prefix.."takeover" then
 sendnotif("Taking over server.")
 wait(0.1)
@@ -144,7 +144,7 @@ while takeover = true do
    command("h you are currently being taken over by exoile.")
 end
 end
-end)
+end)]]--
 
 --[[game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 13) == prefix.."stoptakeover" then
