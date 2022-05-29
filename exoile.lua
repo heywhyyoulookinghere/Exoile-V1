@@ -9,11 +9,6 @@ local hidemusicid = string.rep(0,700)
 local spamreset = false
 local takeover = false
 
-game.Players.PlayerAdded:Connect(function(player)
-   wait(1)
-   command("h "..player.Name.." has joined the server!")
-end)
-
 function sendnotif(msg)
   game.StarterGui:SetCore("SendNotification", {
       Title = "Exoile";
@@ -174,8 +169,6 @@ end)
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 13) == prefix.."stoptakeover" then
 sendnotif("Stopping takeover.")
-wait(0.1)
-takeover()
 wait(0.1)
 takeover = false
 command("unpunish all")
