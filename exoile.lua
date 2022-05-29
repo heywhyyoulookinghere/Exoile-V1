@@ -46,8 +46,6 @@ game.Players.LocalPlayer.Chatted:connect(function(msg)
 if string.sub(msg:lower(), 0, 8) == prefix.."prefix " then
    prefix = string.sub(msg:lower(), 9, 9)
    sendnotif("Prefix set to '"..string.sub(msg:lower(), 9, 9).."'")
-   wait(1)
-   chat("i just changed my prefix xd")
 end
 end)
 
@@ -56,12 +54,12 @@ if string.sub(msg:lower(), 0, 5) == prefix.."cmds" then
    print("---------------------MAIN COMMANDS--------------------------")
    print("prefix -- changes your current prefix")
    print("nok -- makes you not die by obby")
-   print("dascard -- sends you the discord")
+   print("server -- sends you the discord")
    print("spamregen -- spams the regen button")
    print("stopspam -- stops spamming the regen button")
    print("allpads -- grabs all pads")
-   print("takeover -- takes over server")
-   print("stoptakeover -- stops the takeover")
+   print("lock -- locks the server")
+   print("unlock -- unlocks the server")
    wait(0.1)
    sendnotif("Please check console for current commands.")
 end
@@ -85,7 +83,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 8) == prefix.."dascard" then
+if string.sub(msg:lower(), 0, 8) == prefix.."server" then
    wait(0.1)
    sendnotif("discord here")
 end
@@ -133,50 +131,48 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 9) == prefix.."takeover" then
-   sendnotif("Taking over server.")
+if string.sub(msg:lower(), 0, 5) = prefix.."lock" then
+   sendnotif("Locking server.")
    wait(0.1)
    regen()
    wait(0.1)
    local pads = Workspace.Terrain._Game.Admin.Pads:GetChildren("Head")
 for i, pad in pairs(pads) do
-   pad.PrimaryPart = pad:FindFirstChild("Head")
-   local pos = pad.PrimaryPart.CFrame
-   wait(0)
-   pad.PrimaryPart.CanCollide = false
-   pad:SetPrimaryPartCFrame(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
-   wait(0)
-   pad:SetPrimaryPartCFrame(pos)
-   pad.PrimaryPart.CanCollide = true
-   wait(0)
+    pad.PrimaryPart = pad:FindFirstChild("Head")
+    local pos = pad.PrimaryPart.CFrame
+    wait(0)
+    pad.PrimaryPart.CanCollide = false
+    pad:SetPrimaryPartCFrame(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+    wait(0)
+    pad:SetPrimaryPartCFrame(pos)
+    pad.PrimaryPart.CanCollide = true
+    wait(0)
 end
-   wait(0.1)
-if not takeover then
-   takeover = true
+    wait(0.1)
+if not lock then
+   lock = true
 end
-while takeover == true do
-  wait(0.1)
-  command("h taken over by exoile")
-  wait(0.1)
-  command("punish others")
-  wait(0.1)
-  command("blind others")
-  wait(0.1)
+while lock == true do
+    wait(0.1)
+    command("h serverlocked by exoile")
+    wait(0.1)
+    command("pm others serverlocked by exoile")
+    wait(0.1)
+    command("punish others")
 end
 end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 13) == prefix.."stoptakeover" then
-   sendnotif("Fixing server.")
+if string.sub(msg:lower(), 0, 13) == prefix.."unlock" then
+   sendnotif("Unlocking server.")
    wait(0.1)
-if takeover then
-   takeover = false
+if lock then
+   lock = false
    end
    wait(0.1)
-   command("unblind all")
-   wait(0.1)
    command("reset all")
+   wait(0.1)
    regen()
 end
 end)
