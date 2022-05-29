@@ -6,6 +6,7 @@ local command = function(...)game.Players:Chat(...)end
 local chat = function(...)game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(...,"All")end
 local prefix = ","
 local hidemusicid = string.rep(0,700)
+local spamreset = false
 
 function sendnotif(msg)
   game.StarterGui:SetCore("SendNotification", {
@@ -17,6 +18,13 @@ end
 
 function regen()
 fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
+end
+
+function padsreset()
+while spamreset == true do
+    wait()
+    regen()
+end
 end
 
 function leavemessage()
@@ -54,6 +62,9 @@ if string.sub(msg:lower(), 0, 5) == prefix.."cmds" then
    print("---------------------MAIN COMMANDS--------------------------")
    print("prefix -- changes your current prefix")
    print("nok -- makes you not die by obby")
+   print("dascard -- sends you the discord")
+   print("spamreset -- spams the regen button")
+   print("stopspam -- stops spamming the regen button")
    wait(0.1)
    sendnotif("Please check console for current commands.")
 end
@@ -82,3 +93,22 @@ if string.sub(msg:lower(), 0, 8) == prefix.."dascard" then
    sendnotif("discord here")
 end
 end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 10) == prefix.."spamreset" then
+   wait(0.1)
+   spamreset = true
+   padsreset()
+   sendnotif("Now spamming the regen button.")
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 9) == prefix.."stopspam" then
+   wait(0.1)
+   spamreset = false
+   sendnotif("Stopped spamming the regen.")
+end
+end)
+
+
