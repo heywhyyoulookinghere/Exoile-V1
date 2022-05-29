@@ -92,7 +92,6 @@ if string.sub(msg:lower(), 0, 10) == prefix.."spamreset" then
    sendnotif("Now spamming the regen button.")
    wait(0.1)
    spamreset = true
-   wait(0.1)
 while spamreset == true do
     wait()
     regen()
