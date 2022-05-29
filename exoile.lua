@@ -180,5 +180,7 @@ if string.sub(msg:lower(), 0, 13) == prefix.."stoptakeover" then
    command("unblind all")
    wait(0.1)
    command("reset all")
+   wait(0.1)
+   regen()
 end
 end)
