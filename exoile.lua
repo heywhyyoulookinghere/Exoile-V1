@@ -37,7 +37,7 @@ game.Players.LocalPlayer.Chatted:connect(function(msg)
 if string.sub(msg:lower(), 0, 8) == prefix.."prefix " then
    prefix = string.sub(msg:lower(), 9, 9)
    sendnotif("Prefix set to '"..string.sub(msg:lower(), 9, 9).."'")
-   wait(0.1)
+   wait(1)
    chat("i just changed my prefix xd")
 end
 end)
