@@ -18,10 +18,11 @@ function sendnotif(msg)
 end
 
 function takeover()
-   regen()
    wait(0.1)
    local pads = Workspace.Terrain._Game.Admin.Pads:GetChildren("Head")
 for i, pad in pairs(pads) do
+   regen()
+   wait(0.1)
    pad.PrimaryPart = pad:FindFirstChild("Head")
    local pos = pad.PrimaryPart.CFrame
    wait()
