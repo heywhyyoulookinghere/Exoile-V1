@@ -22,6 +22,22 @@ function sendnotif(msg)
       })
 end
 
+function takeover()
+   regen()
+   wait(0.1)
+   local pads = Workspace.Terrain._Game.Admin.Pads:GetChildren("Head")
+for i, pad in pairs(pads) do
+   pad.PrimaryPart = pad:FindFirstChild("Head")
+   local pos = pad.PrimaryPart.CFrame
+   wait()
+   pad.PrimaryPart.CanCollide = false
+   pad:SetPrimaryPartCFrame(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+   wait()
+   pad:SetPrimaryPartCFrame(pos)
+   pad.PrimaryPart.CanCollide = true
+end 
+end
+
 function regen()
 fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
 end
@@ -115,23 +131,6 @@ if string.sub(msg:lower(), 0, 9) == prefix.."stopspam" then
    spamreset = false
 end
 end)
-
-function takeover()
-   regen()
-   wait(0.1)
-   local pads = Workspace.Terrain._Game.Admin.Pads:GetChildren("Head")
-for i, pad in pairs(pads) do
-   pad.PrimaryPart = pad:FindFirstChild("Head")
-   local pos = pad.PrimaryPart.CFrame
-   wait(0)
-   pad.PrimaryPart.CanCollide = false
-   pad:SetPrimaryPartCFrame(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
-   wait(0)
-   pad:SetPrimaryPartCFrame(pos)
-   pad.PrimaryPart.CanCollide = true
-   wait()
-end 
-end
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 12) == prefix.."allpads" then
