@@ -110,7 +110,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 12) == prefix.."allpads" then
+if string.sub(msg:lower(), 0, 8) == prefix.."allpads" then
    sendnotif("Getting all pads.")
    wait(0.1)
    regen()
