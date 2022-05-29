@@ -7,7 +7,7 @@ local chat = function(...)game.ReplicatedStorage.DefaultChatSystemChatEvents.Say
 local prefix = ","
 local hidemusicid = string.rep(0,700)
 local spamreset = false
-local takeallpads = false
+local takeover = false
 
 game.Players.PlayerAdded:Connect(function(player)
    wait(1)
@@ -64,7 +64,9 @@ if string.sub(msg:lower(), 0, 5) == prefix.."cmds" then
    print("dascard -- sends you the discord")
    print("spamregen -- spams the regen button")
    print("stopspam -- stops spamming the regen button")
-   print("allpads -- grabs all pads.")
+   print("allpads -- grabs all pads")
+   print("takeover -- takes over the server")
+   print("stoptakeover -- stops taking over server")
    wait(0.1)
    sendnotif("Please check console for current commands.")
 end
@@ -114,6 +116,23 @@ if string.sub(msg:lower(), 0, 9) == prefix.."stopspam" then
 end
 end)
 
+function takeover()
+   regen()
+   wait(0.1)
+   local pads = Workspace.Terrain._Game.Admin.Pads:GetChildren("Head")
+for i, pad in pairs(pads) do
+   pad.PrimaryPart = pad:FindFirstChild("Head")
+   local pos = pad.PrimaryPart.CFrame
+   wait(0)
+   pad.PrimaryPart.CanCollide = false
+   pad:SetPrimaryPartCFrame(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+   wait(0)
+   pad:SetPrimaryPartCFrame(pos)
+   pad.PrimaryPart.CanCollide = true
+   wait()
+end 
+end
+
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 12) == prefix.."allpads" then
    sendnotif("Getting all pads.")
@@ -132,5 +151,36 @@ for i, pad in pairs(pads) do
    pad.PrimaryPart.CanCollide = true
    wait()
 end
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 9) == prefix.."takeover" then
+sendnotif("Taking over server.")
+wait(0.1)
+takeover()
+wait(0.1)
+takeover = true
+while takeover = true do
+   wait()
+   command("punish others")
+   command("blind others")
+   command("h you are currently being taken over by exoile.")
+end
+wait(0.1)
+sendnotif("Takeover done.")
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 13) == prefix.."stoptakeover" then
+sendnotif("Stopping takeover.")
+wait(0.1)
+takeover()
+wait(0.1)
+takeover = false
+command("unpunish all")
+command("unblind all")
+command("respawn all")
 end
 end)
