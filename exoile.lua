@@ -20,11 +20,9 @@ function regen()
 fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
 end
 
-function padsreset()
 while spamreset == true do
     wait()
     regen()
-end
 end
 
 function leavemessage()
@@ -98,7 +96,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 10) == prefix.."spamreset" then
    wait(0.1)
    spamreset = true
-   padsreset()
    sendnotif("Now spamming the regen button.")
 end
 end)
