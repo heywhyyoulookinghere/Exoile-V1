@@ -77,7 +77,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 0) == prefix.."dascard" then
+if string.sub(msg:lower(), 0, 8) == prefix.."dascard" then
    command("ff discord here")
    wait(0.1)
    sendnotif("Check logs for the discord.")
