@@ -33,12 +33,11 @@ function dropdiscord()
 end
 end
 
-
-game.Players.LocalPlayer.Chatted:Connect(function(msg)
+game.Players.LocalPlayer.Chatted:connect(function(msg)
 if string.sub(msg:lower(), 0, 8) == prefix.."prefix " then
-   prefix = string.sub(msg:lower(), 9, 9)
-   sendnotif("Your prefix has been set to '"..string.sub(msg:lower(), 9, 9).."'")
-   chat("i just changed my prefix xd")
+prefix = string.sub(msg:lower(), 9, 9)
+sendnotif("Prefix set to '"..string.sub(msg:lower(), 9, 9).."'")
+chat("i just changed my prefix xd")
 end
 end)
 
