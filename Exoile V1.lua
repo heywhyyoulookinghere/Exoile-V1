@@ -164,7 +164,7 @@ wait(0.1)
 serverlocked = false
 wait(0.1)
 command("reset all")
-wait(0.1)
+wait(1)
 fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
 wait(0.1)
 sendnotif("Unlocked server.")
