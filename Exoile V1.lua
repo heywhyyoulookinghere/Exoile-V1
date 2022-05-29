@@ -132,7 +132,6 @@ sendnotif("Locking down server.")
 wait(0.1)
 fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
 wait(0.1)
-command("respawn others")
 local pads = Workspace.Terrain._Game.Admin.Pads:GetChildren("Head")
 for i, pad in pairs(pads) do
    pad.PrimaryPart = pad:FindFirstChild("Head")
