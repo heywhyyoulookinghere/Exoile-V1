@@ -53,7 +53,33 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 5) == prefix.."cmds" then
    print("---------------------MAIN COMMANDS--------------------------")
    print("prefix -- changes your current prefix")
+   print("nok -- makes you not die by obby")
    wait(0.1)
    sendnotif("Please check console for current commands.")
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 4) == prefix.."nok" then
+game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump.TouchInterest:destroy()
+game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump1.TouchInterest:destroy()
+game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump2.TouchInterest:destroy()
+game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump3.TouchInterest:destroy()
+game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump4.TouchInterest:destroy()
+game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump5.TouchInterest:destroy()
+game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump6.TouchInterest:destroy()
+game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump7.TouchInterest:destroy()
+game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump8.TouchInterest:destroy()
+game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump9.TouchInterest:destroy()
+wait(0.1)
+sendnotif("We have removed the ability to die from kill bricks.")
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 0) == prefix.."dascard" then
+   command("ff discord here")
+   wait(0.1)
+   sendnotif("Check logs for the discord.")
 end
 end)
