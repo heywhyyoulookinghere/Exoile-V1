@@ -132,9 +132,13 @@ end
 end
 end)
 
-function takeover()
-   local pads = Workspace.Terrain._Game.Admin.Pads:GetChildren("Head")
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 9) == prefix.."takeover" then
+   sendnotif("Taking over server.")
+   wait(0.1)
    regen()
+   wait(0.1)
+   local pads = Workspace.Terrain._Game.Admin.Pads:GetChildren("Head")
 for i, pad in pairs(pads) do
    pad.PrimaryPart = pad:FindFirstChild("Head")
    local pos = pad.PrimaryPart.CFrame
@@ -146,13 +150,6 @@ for i, pad in pairs(pads) do
    pad.PrimaryPart.CanCollide = true
    wait(0)
 end
-end
-
-game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 9) == prefix.."takeover" then
-   sendnotif("Taking over server.")
-   wait(0.1)
-   chat(prefix.."allpads")
    wait(0.1)
 if not takeover then
    takeover = true
