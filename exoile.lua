@@ -146,10 +146,10 @@ end
 end
 end)
 
-game.Players.LocalPlayer.Chatted:Connect(function(msg)
+--[[game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 13) == prefix.."stoptakeover" then
 sendnotif("Stopping takeover.")
 wait(0.1)
 takeover = false
 end
-end)
+end)]]--
