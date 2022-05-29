@@ -106,5 +106,3 @@ if string.sub(msg:lower(), 0, 9) == prefix.."stopspam" then
    spamreset = false
 end
 end)
-
-
