@@ -132,7 +132,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 0) == prefix.."takeover" then
+if string.sub(msg:lower(), 0, 9) == prefix.."takeover" then
    sendnotif("Taking over server.")
    wait(0.1)
    chat(prefix.."allpads")
