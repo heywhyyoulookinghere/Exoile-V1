@@ -17,24 +17,6 @@ function sendnotif(msg)
       })
 end
 
-function regen()
-fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
-end
-
-function leavemessage()
-  for i = 1,100 do
-    wait()
-    command("m exploited by exoile client.")
-end
-end
-
-function dropdiscord()
-  for i = 1,7 do
-    wait()
-    chat("discord here")
-end
-end
-
 function clearlogs()
   for i = 1,100 do
     wait()
@@ -113,7 +95,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 8) == prefix.."allpads" then
    sendnotif("Getting all pads.")
    wait(0.1)
-   regen()
+   fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
    wait(0.1)
    local pads = Workspace.Terrain._Game.Admin.Pads:GetChildren("Head")
 for i, pad in pairs(pads) do
@@ -134,7 +116,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 5) = prefix.."lock" then
    sendnotif("Locking server.")
    wait(0.1)
-   regen()
+   fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
    wait(0.1)
    lock = true
 local pads = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:GetChildren("Head")
@@ -168,6 +150,6 @@ if string.sub(msg:lower(), 0, 7) == prefix.."unlock" then
    wait(0.1)
    command("reset all")
    wait(0.1)
-   regen()
+   fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
 end
 end)
