@@ -7,7 +7,7 @@ local chat = function(...)game.ReplicatedStorage.DefaultChatSystemChatEvents.Say
 local prefix = ","
 local hidemusicid = string.rep(0,700)
 local spamreset = false
-local takeover = false
+local lock = false
 
 function sendnotif(msg)
   game.StarterGui:SetCore("SendNotification", {
