@@ -164,7 +164,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 13) == prefix.."unlock" then
+if string.sub(msg:lower(), 0, 7) == prefix.."unlock" then
    sendnotif("Unlocking server.")
    wait(0.1)
 if lock then
