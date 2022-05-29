@@ -24,6 +24,12 @@ function clearlogs()
 end
 end
 
+function chatdiscord()
+   chat("join us today")
+   chat("ff 5yyrFGAyDC")
+   chat("exoile ontop")
+end
+
 game.Players.LocalPlayer.Chatted:connect(function(msg)
 if string.sub(msg:lower(), 0, 8) == prefix.."prefix " then
    prefix = string.sub(msg:lower(), 9, 9)
@@ -143,8 +149,9 @@ while locked == true do
   wait(0.1)
   command("punish others")
   wait(0.1)
-  command("pm others server has been locked by Exoile V1, please join a new server.")
+  command("blind others")
 end
+chatdiscord()
 wait(0.1)
 sendnotif("Locked server.")
 end
