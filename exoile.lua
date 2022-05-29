@@ -136,7 +136,7 @@ if string.sub(msg:lower(), 0, 5) = prefix.."lock" then
    wait(0.1)
    regen()
    wait(0.1)
-local pads = Workspace.Terrain._Game.Admin.Pads:GetChildren("Head")
+local pads = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:GetChildren("Head")
 for i, pad in pairs(pads) do
    pad.PrimaryPart = pad:FindFirstChild("Head")
    local pos = pad.PrimaryPart.CFrame
