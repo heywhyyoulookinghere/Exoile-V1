@@ -7,7 +7,6 @@ local chat = function(...)game.ReplicatedStorage.DefaultChatSystemChatEvents.Say
 local prefix = ","
 local hidemusicid = string.rep(0,700)
 local spamreset = false
-local lock = false
 
 function sendnotif(msg)
   game.StarterGui:SetCore("SendNotification", {
@@ -40,8 +39,6 @@ if string.sub(msg:lower(), 0, 5) == prefix.."cmds" then
    print("spamregen -- spams the regen button")
    print("stopspam -- stops spamming the regen button")
    print("allpads -- grabs all pads")
-   print("lock -- locks the server")
-   print("unlock -- unlocks the server")
    wait(0.1)
    sendnotif("Please check console for current commands.")
 end
@@ -109,47 +106,5 @@ for i, pad in pairs(pads) do
    pad.PrimaryPart.CanCollide = true
    wait(0)
 end
-end
-end)
-
-game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 5) = prefix.."lock" then
-   sendnotif("Locking server.")
-   wait(0.1)
-   fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
-   wait(0.1)
-   lock = true
-local pads = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:GetChildren("Head")
-for i, pad in pairs(pads) do
-   pad.PrimaryPart = pad:FindFirstChild("Head")
-   local pos = pad.PrimaryPart.CFrame
-   wait(0)
-   pad.PrimaryPart.CanCollide = false
-   pad:SetPrimaryPartCFrame(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
-   wait(0)
-   pad:SetPrimaryPartCFrame(pos)
-   pad.PrimaryPart.CanCollide = true
-   wait(0)
-end
-while lock == true do
-    wait(0.1)
-    command("h serverlocked by exoile")
-    wait(0.1)
-    command("pm others serverlocked by exoile")
-    wait(0.1)
-    command("punish others")
-end
-end
-end)
-
-game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 7) == prefix.."unlock" then
-   sendnotif("Unlocking server.")
-   wait(0.1)
-   lock = false
-   wait(0.1)
-   command("reset all")
-   wait(0.1)
-   fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
 end
 end)
