@@ -56,7 +56,7 @@ if string.sub(msg:lower(), 0, 5) == prefix.."cmds" then
    print("prefix -- changes your current prefix")
    print("nok -- makes you not die by obby")
    print("dascard -- sends you the discord")
-   print("spamreset -- spams the regen button")
+   print("spamregen -- spams the regen button")
    print("stopspam -- stops spamming the regen button")
    wait(0.1)
    sendnotif("Please check console for current commands.")
@@ -88,7 +88,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 10) == prefix.."spamreset" then
+if string.sub(msg:lower(), 0, 10) == prefix.."spamregen" then
    sendnotif("Now spamming the regen button.")
    wait(0.1)
    spamreset = true
