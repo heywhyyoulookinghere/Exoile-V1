@@ -7,7 +7,6 @@ local chat = function(...)game.ReplicatedStorage.DefaultChatSystemChatEvents.Say
 local prefix = ","
 local hidemusicid = string.rep(0,700)
 local spamreset = false
-local serverlocked = false
 local permadmin = false
 
 local function getpads()
@@ -88,8 +87,6 @@ if string.sub(msg:lower(), 0, 9) == prefix.."commands" then
    print("spamregen -- spams the regen button")
    print("stopspam -- stops spamming the regen button")
    print("allpads -- grabs all pads")
-   print("lockserver -- locks the server")
-   print("unlockserver -- unlocks the server")
    print("move -- moves anything you're near")
    print("movebp -- moves the bp")
    print("regen -- regens the pads")
@@ -162,41 +159,6 @@ for i, pad in pairs(pads) do
    pad.PrimaryPart.CanCollide = true
    wait(0)
 end
-end
-end)
-
-game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 11) == prefix.."lockserver" then
-sendnotif("Locking down server.")
-wait(0.1)
-permadmin = true
-wait(0.1)
-serverlocked = true
-wait(0.1)
-while serverlocked == true do
-   command("h serverlocked by Exoile V1, join another server.")
-   wait(0.1)
-   command("punish others") 
-end
-wait(0.1)
-sendnotif("Server is now locked.")
-end
-end)
-
-game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 13) == prefix.."unlockserver" then
-sendnotif("Unlocking the server.")
-wait(0.1)
-serverlocked = false
-wait(0.1)
-command("reset all")
-wait(0.1)
-permadmin = false
-wait(1)
-fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
-wait(0.1)
-sendnotif("Unlocked server.")
-wait(0.1)
 end
 end)
 
