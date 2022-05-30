@@ -42,13 +42,10 @@ end
 end
 end
 
-function antiblnd()
-while antiblind == true do
-  wait()
-  local gui = game.Players.LocalPlayer.PlayerGui.EFFECTGUIBlIND
-if gui then
-  gui:Destroy()
-end
+if antiblind == true then
+  for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
+   if v.Name == "EFFECTGUIBLIND" then
+   v:Destroy()
 end
 end
 
@@ -326,8 +323,6 @@ if string.sub(msg:lower(), 0, 5) == prefix.."antib" then
 sendnotif("Antiblind enabled.")
 wait(0.1)
 antiblind = true
-wait(0.1)
-antiblnd()
 end
 end)
 
