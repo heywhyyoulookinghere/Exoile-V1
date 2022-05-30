@@ -43,9 +43,10 @@ end
 end
 
 if antiblind == true then
-  for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
+ for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
    if v.Name == "EFFECTGUIBLIND" then
-   v:Destroy()
+    v:Destroy()
+end
 end
 end
 
