@@ -321,7 +321,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 0) == prefix.."antib" then
+if string.sub(msg:lower(), 0, 5) == prefix.."antib" then
 sendnotif("Antiblind enabled.")
 wait(0.1)
 antiblind = true
@@ -331,7 +331,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 11) == prefix.."unantib" then
+if string.sub(msg:lower(), 0, 8) == prefix.."unantib" then
 sendnotif("Antiblind disabled.")
 wait(0.1)
 antiblind = false
