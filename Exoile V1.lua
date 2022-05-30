@@ -10,6 +10,18 @@ local spamreset = false
 local permadmin = false
 local antikill = false
 local antiblind = false
+local runservice = game:GetService("RunService")
+
+runservice.RenderStepped:Connect(function()
+if antiblind == true then
+	for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
+	    if v.Name == "EFFECTGUIBLIND" then
+		    v:Destroy()
+		end
+	   end
+     end
+end)
+
 
 function getpads()
 while permadmin == true do
@@ -317,13 +329,6 @@ sendnotif("Antiblind enabled.")
 wait(0.1)
 antiblind = true
 wait(0.1)
-if antiblind == true then
- for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
-   if v.Name == "EFFECTGUIBLIND" then
-    v:Destroy()
-end
-end
-end
 end
 end)
 
