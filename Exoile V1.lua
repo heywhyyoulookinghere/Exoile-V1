@@ -31,15 +31,9 @@ while permadmin == true do
    end
 end
 
-function resetchar()
 while antikill == true do
-   wait()
-   local character = game.Players.LocalPlayer.Character
-   local humanoid = Character:FindFirstChild("Humanoid")
-   humanoid.Died:Connect(function()
-   wait()
-   command("reset me")
-end)
+   if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
+	command("reset me")
 end
 end
 
