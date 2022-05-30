@@ -285,7 +285,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 5) == prefix.."antik" then
+if string.sub(msg:lower(), 0, 6) == prefix.."antik" then
 sendnotif("Antikill enabled.")
 wait(0.1)
 antikill = true
