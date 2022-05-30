@@ -31,11 +31,13 @@ while permadmin == true do
    end
 end
 
+function antikill()
 while antikill == true do
    wait(0)
    if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
    wait(0.1)
    command("reset me")
+end
 end
 end
 
@@ -283,10 +285,12 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 0) == prefix.."antik" then
+if string.sub(msg:lower(), 0, 5) == prefix.."antik" then
 sendnotif("Antikill enabled.")
 wait(0.1)
 antikill = true
+wait(0.1)
+antikill()
 end
 end)
 
