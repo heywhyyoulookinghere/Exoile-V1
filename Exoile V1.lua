@@ -8,6 +8,7 @@ local prefix = ","
 local hidemusicid = string.rep(0,700)
 local spamreset = false
 local permadmin = false
+local antikill = false
 
 function getpads()
 while permadmin == true do
@@ -28,6 +29,18 @@ while permadmin == true do
 	 end
       end
    end
+end
+
+function resetchar()
+while antikill == true do
+   wait()
+   local character = game.Players.LocalPlayer.Character
+   local humanoid = Character:FindFirstChild("Humanoid")
+   humanoid.Died:Connect(function()
+   wait()
+   command("reset me")
+end)
+end
 end
 
 
@@ -93,6 +106,9 @@ if string.sub(msg:lower(), 0, 9) == prefix.."commands" then
    print("regen -- regens the pads")
    print("clearlogs -- clears the logs")
    print("findreset -- finds the resetpad")
+   print("---------------------ANTIS--------------------------")
+   print("antikill -- makes you reset when you die")
+   print("unantikill -- disables antikill")
    wait(0.1)
    sendnotif("Please check console for current commands.")
 end
@@ -267,5 +283,18 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 10) == prefix.."findreset" then
    local playercframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
    playercframe = game:GetService("Workspace").Terrain["_Game"].Admin.Regen.CFrame
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 9) == prefix.."antikill" then
+antikill = true
+resetchar()
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 11) == prefix.."unantikill" then
+antikill = false
 end
 end)
