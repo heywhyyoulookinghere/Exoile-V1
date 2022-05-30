@@ -103,8 +103,8 @@ if string.sub(msg:lower(), 0, 9) == prefix.."commands" then
    print("clearlogs -- clears the logs")
    print("findreset -- finds the resetpad")
    print("---------------------ANTIS--------------------------")
-   print("antikill -- makes you reset when you die")
-   print("unantikill -- disables antikill")
+   print("antik -- makes you reset when you die")
+   print("unantik -- disables antikill")
    wait(0.1)
    sendnotif("Please check console for current commands.")
 end
@@ -283,7 +283,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 9) == prefix.."antikill" then
+if string.sub(msg:lower(), 0, 0) == prefix.."antik" then
 sendnotif("Antikill enabled.")
 wait(0.1)
 antikill = true
@@ -291,7 +291,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 11) == prefix.."unantikill" then
+if string.sub(msg:lower(), 0, 11) == prefix.."unantik" then
 sendnotif("Antikill disabled.")
 wait(0.1)
 antikill = false
