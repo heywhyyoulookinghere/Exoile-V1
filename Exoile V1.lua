@@ -9,7 +9,7 @@ local hidemusicid = string.rep(0,700)
 local spamreset = false
 local permadmin = false
 
-local function getpads()
+function getpads()
 while permadmin == true do
     wait(0)
  if not game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name .. "'s admin") then
@@ -29,6 +29,21 @@ while permadmin == true do
       end
    end
 end
+
+function sm(player, message)
+   command([[h 
+
+
+
+
+]]..player..[[: ]]..message..[[
+
+
+
+
+
+]])
+end)
 
 function sendnotif(msg)
   game.StarterGui:SetCore("SendNotification", {
@@ -82,6 +97,7 @@ if string.sub(msg:lower(), 0, 9) == prefix.."commands" then
    print("rj -- forces you to rejoin")
    print("perm -- gives you perm admin")
    print("unperm -- removes your perm")
+   print("sm -- makes you talk as servermessage")
    print("---------------------MAIN COMMANDS--------------------------")
    print("nok -- makes you not die by obby")
    print("spamregen -- spams the regen button")
@@ -258,5 +274,12 @@ if string.sub(msg:lower(), 0, 7) == prefix.."unperm" then
    sendnotif("You now don't have perm.")
    wait(0.1)
    permadmin = false
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 3) == prefix.."sm" then
+   local message = string.sub(msg:lower(), 5)
+   sm("SM:", message)
 end
 end)
