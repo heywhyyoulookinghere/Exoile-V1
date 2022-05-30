@@ -71,15 +71,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 9) == prefix.."commands" then
-   print([[xd noob
-   |  ___|\ \  / / / _ \ |_   _|| |    |  ___|  | | | ||_  |  
-   | |___  \ \/ / | | | |  | |  | |    | |___   | | | |  | |  
-   |  ___|  \  /  | | | |  | |  | |    |  ___|  | | | |  | |  
-   | |      /  \  | | | |  | |  | |    | |      | |_| |  | |  
-   | |___  / /\ \ | |_| | _| |_ | |___ | |___    \   /  _| |_ 
-   |_____|/_/  \_\ \___/ |_____||_____||_____|    \_/  |_____|
-   noob]])
+if string.sub(msg:lower(), 0, 9) == prefix.."cmds" then
    print("EXOILE V1, JOIN US AT DISCORD.GG/5yyrFGAyDC")
    print(".")
    print(".")
