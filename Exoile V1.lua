@@ -317,3 +317,4 @@ end
 end)
 
 sendnotif("Exoile V1 loaded.")
+sendnotif("Have a lovely day!")
