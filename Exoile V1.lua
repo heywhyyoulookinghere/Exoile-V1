@@ -31,7 +31,7 @@ while permadmin == true do
    end
 end
 
-function antikill()
+function antikll()
 while antikill == true do
    wait(0)
    if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
@@ -291,7 +291,7 @@ sendnotif("Antikill enabled.")
 wait(0.1)
 antikill = true
 wait(0.1)
-antikill()
+antikll()
 end
 end)
 
