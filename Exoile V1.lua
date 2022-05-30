@@ -300,8 +300,11 @@ end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 10) == prefix.."findreset" then
+   sendnotif("Found reset.")
+   wait(0.1)
    local playercframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-   playercframe = game:GetService("Workspace").Terrain["_Game"].Admin.Regen.CFrame
+   local padcframe = game:GetService("Workspace").Terrain["_Game"].Admin.Regen.CFrame
+   playercframe = padcframe
 end
 end)
 
