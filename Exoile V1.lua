@@ -9,6 +9,7 @@ local hidemusicid = string.rep(0,700)
 local spamreset = false
 local permadmin = false
 local antikill = false
+local antiblind = false
 
 function getpads()
 while permadmin == true do
@@ -33,11 +34,20 @@ end
 
 function antikll()
 while antikill == true do
-   wait(0)
+   wait()
    if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
-   wait(0.1)
+   wait()
    command("reset me")
 end
+end
+end
+
+function antiblnd()
+while antiblind == true do
+  wait()
+  local gui = game.Players.LocalPlayer.PlayerGui.EFFECTGUIBlIND
+  if gui then
+  gui:Destroy()
 end
 end
 
@@ -108,6 +118,8 @@ if string.sub(msg:lower(), 0, 9) == prefix.."cmds" then
    print("---------------------ANTIS--------------------------")
    print("antik -- makes you reset when you die")
    print("unantik -- disables antikill")
+   print("antib -- makes you not get blinded")
+   print("unantib -- disables antiblind")
    wait(0.1)
    sendnotif("Please check console for current commands.")
 end
@@ -305,6 +317,24 @@ if string.sub(msg:lower(), 0, 11) == prefix.."unantik" then
 sendnotif("Antikill disabled.")
 wait(0.1)
 antikill = false
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 0) == prefix.."antib" then
+sendnotif("Antiblind enabled.")
+wait(0.1)
+antiblind = true
+wait(0.1)
+antiblnd()
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 11) == prefix.."unantib" then
+sendnotif("Antiblind disabled.")
+wait(0.1)
+antiblind = false
 end
 end)
 
