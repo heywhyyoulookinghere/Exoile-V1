@@ -43,7 +43,7 @@ function sm(player, message)
 
 
 ]])
-end)
+end
 
 function sendnotif(msg)
   game.StarterGui:SetCore("SendNotification", {
