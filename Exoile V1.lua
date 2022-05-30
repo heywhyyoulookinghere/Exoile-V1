@@ -107,6 +107,7 @@ if string.sub(msg:lower(), 0, 9) == prefix.."commands" then
    print("---------------------ANTIS--------------------------")
    print("antik -- makes you reset when you die")
    print("unantik -- disables antikill")
+   print("ash was here.")
    wait(0.1)
    sendnotif("Please check console for current commands.")
 end
