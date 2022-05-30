@@ -4,7 +4,7 @@
 
 local command = function(...)game.Players:Chat(...)end
 local chat = function(...)game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(...,"All")end
-local prefix = ":"
+local prefix = ","
 local hidemusicid = string.rep(0,700)
 local spamreset = false
 local permadmin = false
@@ -109,6 +109,7 @@ if string.sub(msg:lower(), 0, 9) == prefix.."commands" then
    print("unantik -- disables antikill")
    print("ash was here.")
    print("x2")
+   print("jingle bells")
    wait(0.1)
    sendnotif("Please check console for current commands.")
 end
