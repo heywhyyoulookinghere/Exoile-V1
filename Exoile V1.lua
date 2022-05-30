@@ -29,7 +29,7 @@ while permadmin == true do
 	 end
       end
    end
-end)
+end
 
 function sendnotif(msg)
   game.StarterGui:SetCore("SendNotification", {
