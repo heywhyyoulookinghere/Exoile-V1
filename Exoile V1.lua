@@ -169,8 +169,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 11) == prefix.."lockserver" then
 sendnotif("Locking down server.")
 wait(0.1)
-fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
-wait(0.1)
 permadmin = true
 wait(0.1)
 serverlocked = true
