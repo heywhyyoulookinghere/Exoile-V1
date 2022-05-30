@@ -72,6 +72,14 @@ end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 9) == prefix.."commands" then
+   print([[
+   |  ___|\ \  / / / _ \ |_   _|| |    |  ___|  | | | ||_  |  
+   | |___  \ \/ / | | | |  | |  | |    | |___   | | | |  | |  
+   |  ___|  \  /  | | | |  | |  | |    |  ___|  | | | |  | |  
+   | |      /  \  | | | |  | |  | |    | |      | |_| |  | |  
+   | |___  / /\ \ | |_| | _| |_ | |___ | |___    \   /  _| |_ 
+   |_____|/_/  \_\ \___/ |_____||_____||_____|    \_/  |_____|
+   ]])
    print("EXOILE V1, JOIN US AT DISCORD.GG/5yyrFGAyDC")
    print(".")
    print(".")
@@ -91,6 +99,7 @@ if string.sub(msg:lower(), 0, 9) == prefix.."commands" then
    print("server -- sends you the discord")
    print("house -- tps you to the house")
    print("pads -- tps you to the pads")
+   print("finishobby -- finishes the obby")
    print("rj -- forces you to rejoin")
    print("perm -- gives you perm admin")
    print("unperm -- removes your perm")
@@ -245,6 +254,11 @@ end
 if string.sub(msg:lower(), 0, 6) == prefix.."house" then
 sendnotif("Tped to house")
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(-28.6829948, 8.2299995, 66.4913253))
+end
+
+if string.sub(msg:lower(), 0, 11) == prefix.."finishobby" then
+sendnotif("Tped to end of obby")
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(-51.46, 1.2, 36.939))
 end
 end)
 
