@@ -72,14 +72,14 @@ end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 9) == prefix.."commands" then
-   print([[....................................................
+   print([[xd noob
    |  ___|\ \  / / / _ \ |_   _|| |    |  ___|  | | | ||_  |  
    | |___  \ \/ / | | | |  | |  | |    | |___   | | | |  | |  
    |  ___|  \  /  | | | |  | |  | |    |  ___|  | | | |  | |  
    | |      /  \  | | | |  | |  | |    | |      | |_| |  | |  
    | |___  / /\ \ | |_| | _| |_ | |___ | |___    \   /  _| |_ 
    |_____|/_/  \_\ \___/ |_____||_____||_____|    \_/  |_____|
-   .........................................................]])
+   noob]])
    print("EXOILE V1, JOIN US AT DISCORD.GG/5yyrFGAyDC")
    print(".")
    print(".")
@@ -317,4 +317,3 @@ end
 end)
 
 sendnotif("Exoile V1 loaded.")
-sendnotif("Have a lovely day!")
