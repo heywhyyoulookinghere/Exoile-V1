@@ -38,7 +38,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 5) == prefix.."cmds" then
+if string.sub(msg:lower(), 0, 9) == prefix.."commands" then
    print("EXOILE V1, JOIN US AT DISCORD.GG/5yyrFGAyDC")
    print(".")
    print(".")
