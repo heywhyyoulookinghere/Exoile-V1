@@ -173,8 +173,6 @@ fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.Clic
 wait(0.1)
 permadmin = true
 wait(0.1)
-getpads()
-wait(0.1)
 serverlocked = true
 wait(0.1)
 while serverlocked == true do
