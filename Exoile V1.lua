@@ -10,8 +10,6 @@ local spamreset = false
 local permadmin = false
 local antikill = false
 
-sendnotif("Exoile V1 loaded.")
-
 function getpads()
 while permadmin == true do
     wait(0)
@@ -51,6 +49,8 @@ function sendnotif(msg)
       Duration = 3;
       })
 end
+
+sendnotif("Exoile V1 loaded.")
 
 function clearlogs()
   for i = 1,100 do
