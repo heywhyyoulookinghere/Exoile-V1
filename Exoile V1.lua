@@ -26,6 +26,7 @@ while permadmin == true do
 	    pads.CanCollide = true
 	else
 	   fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
+	 end
       end
    end
 end)
@@ -192,9 +193,9 @@ sendnotif("Unlocking the server.")
 wait(0.1)
 serverlocked = false
 wait(0.1)
-permadmin = false
-wait(0.1)
 command("reset all")
+wait(0.1)
+permadmin = false
 wait(1)
 fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
 wait(0.1)
