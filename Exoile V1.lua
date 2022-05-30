@@ -8,6 +8,27 @@ local prefix = ","
 local hidemusicid = string.rep(0,700)
 local spamreset = false
 local serverlocked = false
+local permadmin = false
+
+local function getpads()
+while permadmin == true do
+    wait(0)
+ if not game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name .. "'s admin") then
+	if game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin") then
+	    local pads = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin"):FindFirstChild("Head")
+	    local padsFrame = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin"):FindFirstChild("Head").CFrame
+	    wait(0.1)
+	    pads.CanCollide = false
+	    repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+	    pads.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+	    wait(0.1)
+	    pads.CFrame = padsFrame
+	    pads.CanCollide = true
+	else
+	   fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
+      end
+   end
+end)
 
 function sendnotif(msg)
   game.StarterGui:SetCore("SendNotification", {
@@ -59,6 +80,8 @@ if string.sub(msg:lower(), 0, 9) == prefix.."commands" then
    print("house -- tps you to the house")
    print("pads -- tps you to the pads")
    print("rj -- forces you to rejoin")
+   print("perm -- gives you perm admin")
+   print("unperm -- removes your perm")
    print("---------------------MAIN COMMANDS--------------------------")
    print("nok -- makes you not die by obby")
    print("spamregen -- spams the regen button")
@@ -147,18 +170,9 @@ sendnotif("Locking down server.")
 wait(0.1)
 fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
 wait(0.1)
-local pads = Workspace.Terrain._Game.Admin.Pads:GetChildren("Head")
-for i, pad in pairs(pads) do
-   pad.PrimaryPart = pad:FindFirstChild("Head")
-   local pos = pad.PrimaryPart.CFrame
-   wait(0)
-   pad.PrimaryPart.CanCollide = false
-   pad:SetPrimaryPartCFrame(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
-   wait(0)
-   pad:SetPrimaryPartCFrame(pos)
-   pad.PrimaryPart.CanCollide = true
-   wait(0)
-end
+permadmin = true
+wait(0.1)
+getpads()
 wait(0.1)
 serverlocked = true
 wait(0.1)
@@ -178,6 +192,8 @@ sendnotif("Unlocking the server.")
 wait(0.1)
 serverlocked = false
 wait(0.1)
+permadmin = false
+wait(0.1)
 command("reset all")
 wait(1)
 fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
@@ -187,7 +203,7 @@ wait(0.1)
 end
 end)
 
-game.Players.LocalPlayer.Chatted:connect(function(msg)
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg, 0, 4) == prefix.."rj" then 
 wait(0.1)
 local place = game:GetService("TeleportService")
@@ -196,7 +212,7 @@ place:Teleport(game.PlaceId, player)
 end
 end)
 
-game.Players.LocalPlayer.Chatted:connect(function(msg)
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 7) == prefix.."movebp" then 
 wait(0.1)
 sendnotif("Moving the baseplate..")
@@ -216,7 +232,7 @@ clearlogs()
 end
 end)
 
-game.Players.LocalPlayer.Chatted:connect(function(msg)
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 6) == prefix.."move" then 
 wait(0.1)
 sendnotif("Moving object near you.")
@@ -234,7 +250,7 @@ wait(0.1)
 end
 end)
 
-game.Players.LocalPlayer.Chatted:connect(function(msg)
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 10) == prefix.."regen" then 
 wait(0.1)
 sendnotif("Resetting the pads.")
@@ -245,7 +261,7 @@ sendnotif("Resetted pads.")
 end
 end)
 
-game.Players.LocalPlayer.Chatted:connect(function(msg)
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 5) == prefix.."pads" then
 sendnotif("Tped to pads")
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(-32.7, 8.22999954, 94.5))
@@ -257,7 +273,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.
 end
 end)
 
-game.Players.LocalPlayer.Chatted:connect(function(msg)
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 10) == prefix.."clearlogs" then 
 wait(0.1)
 sendnotif("Clearing the logs...")
@@ -265,5 +281,23 @@ wait(0.1)
 clearlogs()
 wait(0.1)
 sendnotif("Cleared logs.")
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 5) == prefix.."perm" then
+    sendnotif("You now have perm.")
+    wait(0.1)
+    permadmin = true
+    wait(0.1)
+    getpads()
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 7) == prefix.."unperm" then
+   sendnotif("You now don't have perm.")
+   wait(0.1)
+   permadmin = false
 end
 end)
