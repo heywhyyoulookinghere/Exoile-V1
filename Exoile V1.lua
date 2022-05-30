@@ -92,6 +92,7 @@ if string.sub(msg:lower(), 0, 9) == prefix.."commands" then
    print("movebp -- moves the bp")
    print("regen -- regens the pads")
    print("clearlogs -- clears the logs")
+   print("findreset -- finds the resetpad")
    wait(0.1)
    sendnotif("Please check console for current commands.")
 end
@@ -259,5 +260,12 @@ if string.sub(msg:lower(), 0, 7) == prefix.."unperm" then
    sendnotif("You now don't have perm.")
    wait(0.1)
    permadmin = false
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 10) == prefix.."findreset" then
+   local playercframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+   playercframe = game:GetService("Workspace").Terrain["_Game"].Admin.Regen.CFrame
 end
 end)
