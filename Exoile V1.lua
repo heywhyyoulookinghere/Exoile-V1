@@ -42,15 +42,6 @@ end
 end
 end
 
-if antiblind == true then
- for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
-   if v.Name == "EFFECTGUIBLIND" then
-    v:Destroy()
-end
-end
-end
-
-
 function sendnotif(msg)
   game.StarterGui:SetCore("SendNotification", {
       Title = "Exoile V1";
@@ -324,6 +315,14 @@ if string.sub(msg:lower(), 0, 5) == prefix.."antib" then
 sendnotif("Antiblind enabled.")
 wait(0.1)
 antiblind = true
+wait(0.1)
+if antiblind == true then
+ for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
+   if v.Name == "EFFECTGUIBLIND" then
+    v:Destroy()
+end
+end
+end
 end
 end)
 
