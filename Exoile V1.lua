@@ -50,8 +50,6 @@ function sendnotif(msg)
       })
 end
 
-sendnotif("Exoile V1 loaded.")
-
 function clearlogs()
   for i = 1,100 do
     wait()
@@ -303,3 +301,5 @@ wait(0.1)
 antikill = false
 end
 end)
+
+sendnotif("Exoile V1 loaded.")
