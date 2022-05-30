@@ -117,6 +117,7 @@ if string.sub(msg:lower(), 0, 9) == prefix.."cmds" then
    print("regen -- regens the pads")
    print("clearlogs -- clears the logs")
    print("findreset -- finds the resetpad")
+   print("unpunish -- unpunishes you if you can't")
    print("---------------------ANTIS--------------------------")
    print("antik -- makes you reset when you die")
    print("unantik -- disables antikill")
@@ -340,6 +341,12 @@ if string.sub(msg:lower(), 0, 8) == prefix.."unantib" then
 sendnotif("Antiblind disabled.")
 wait(0.1)
 antiblind = false
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 9) == prefix.."unpunish" then
+game.Players.LocalPlayer.Character:Destroy()
 end
 end)
 
