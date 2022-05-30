@@ -46,8 +46,9 @@ function antiblnd()
 while antiblind == true do
   wait()
   local gui = game.Players.LocalPlayer.PlayerGui.EFFECTGUIBlIND
-  if gui then
+if gui then
   gui:Destroy()
+end
 end
 end
 
