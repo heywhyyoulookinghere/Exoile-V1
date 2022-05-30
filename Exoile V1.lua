@@ -34,9 +34,9 @@ end
 
 function antikll()
 while antikill == true do
-   wait()
+   wait(0)
    if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
-   wait()
+   wait(0)
    command("reset me")
 end
 end
