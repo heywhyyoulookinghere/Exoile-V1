@@ -30,11 +30,9 @@ while permadmin == true do
 	if game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin") then
 	    local pads = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin"):FindFirstChild("Head")
 	    local padsFrame = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin"):FindFirstChild("Head").CFrame
-	    wait()
 	    pads.CanCollide = false
 	    repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
 	    pads.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-	    wait()
 	    pads.CFrame = padsFrame
 	    pads.CanCollide = true
 	else
