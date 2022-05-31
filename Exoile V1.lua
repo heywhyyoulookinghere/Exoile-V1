@@ -25,16 +25,16 @@ end)
 
 function getpads()
 while permadmin == true do
-    wait(0)
+    wait()
  if not game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name .. "'s admin") then
 	if game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin") then
 	    local pads = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin"):FindFirstChild("Head")
 	    local padsFrame = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin"):FindFirstChild("Head").CFrame
-	    wait(0.1)
+	    wait()
 	    pads.CanCollide = false
 	    repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
 	    pads.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-	    wait(0.1)
+	    wait()
 	    pads.CFrame = padsFrame
 	    pads.CanCollide = true
 	else
@@ -284,9 +284,9 @@ end)
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 5) == prefix.."perm" then
     sendnotif("You now have perm.")
-    wait(0.1)
+    wait()
     permadmin = true
-    wait(0.1)
+    wait()
     getpads()
 end
 end)
@@ -294,7 +294,7 @@ end)
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 7) == prefix.."unperm" then
    sendnotif("You now don't have perm.")
-   wait(0.1)
+   wait()
    permadmin = false
 end
 end)
