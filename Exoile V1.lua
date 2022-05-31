@@ -33,6 +33,7 @@ while permadmin == true do
 	    pads.CanCollide = false
 	    repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
 	    pads.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+	    wait()
 	    pads.CFrame = padsFrame
 	    pads.CanCollide = true
 	else
