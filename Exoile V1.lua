@@ -10,6 +10,7 @@ local spamreset = false
 local permadmin = false
 local antikill = false
 local antiblind = false
+local chatplayerjoins = false
 local runservice = game:GetService("RunService")
 
 runservice.RenderStepped:Connect(function()
@@ -106,6 +107,8 @@ if string.sub(msg:lower(), 0, 9) == prefix.."cmds" then
    print("rj -- forces you to rejoin")
    print("perm -- gives you perm admin")
    print("unperm -- removes your perm")
+   print("enablechat -- enables the feature to chat when a player joins")
+   print("disablechat -- disables the feature to chat when a player joins")
    print("---------------------MAIN COMMANDS--------------------------")
    print("nok -- makes you not die by obby")
    print("spamregen -- spams the regen button")
@@ -349,4 +352,32 @@ game.Players.LocalPlayer.Character:Destroy()
 end
 end)
 
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 11) == prefix.."enablechat" then
+if chatplayerjoins == false then
+   chatplayerjoins = true
+end
+wait(0.1)
+sendnotif("Chat player joins enabled.")
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 12) == prefix.."disablechat" then
+if chatplayerjoins == true then
+   chatplayerjoins = false
+end
+wait(0.1)
+sendnotif("Chat player joins disabled.")
+end
+end)
+
 sendnotif("Exoile V1 loaded.")
+
+game.Players.PlayerAdded:Connect(function(player)
+if chatplayerjoins == true then
+   chat(player.Name.." has joined the server!")
+else
+   sendnotif(player.Name.." has joined the server!")
+end
+end)
