@@ -126,6 +126,8 @@ if string.sub(msg:lower(), 0, 9) == prefix.."cmds" then
    print("unantik -- disables antikill")
    print("antib -- makes you not get blinded")
    print("unantib -- disables antiblind")
+   print("---------------------KEYBINDS--------------------------")
+   print("h -- attaches to part")
    print("Thanks for using Exoile V1.")
    wait(0.1)
    sendnotif("Please check console for current commands.")
