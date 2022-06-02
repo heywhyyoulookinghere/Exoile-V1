@@ -11,9 +11,9 @@ local permadmin = false
 local antikill = false
 local antiblind = false
 local chatplayerjoins = false
-local runservice = game:GetService("RunService")
+local RunService = game:GetService("RunService")
 
-runservice.RenderStepped:Connect(function()
+RunService.RenderStepped:Connect(function()
 if antiblind == true then
 	for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
 	    if v.Name == "EFFECTGUIBLIND" then
