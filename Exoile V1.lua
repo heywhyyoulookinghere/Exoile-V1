@@ -109,6 +109,7 @@ if string.sub(msg:lower(), 0, 9) == prefix.."cmds" then
    print("unperm -- removes your perm")
    print("enablechat -- enables the feature to chat when a player joins")
    print("disablechat -- disables the feature to chat when a player joins")
+   print("chatfunny -- makes you chat funny stuff")
    print("---------------------MAIN COMMANDS--------------------------")
    print("nok -- makes you not die by obby")
    print("spamregen -- spams the regen button")
@@ -358,6 +359,17 @@ if chatplayerjoins == true then
 end
 wait(0.1)
 sendnotif("Chat player joins disabled.")
+end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+if string.sub(msg:lower(), 0, 10) == prefix.."chatfunny") then
+sendnotif("Chatting funny stuff.")
+wait(0.1)
+chat("i have aids")
+chat("when the impostor is sus xd")
+chat("i like kids")
+chat("punish me and i'll make you mine")
 end
 end)
 
