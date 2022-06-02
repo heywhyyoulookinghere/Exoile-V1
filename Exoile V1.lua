@@ -12,8 +12,6 @@ local antikill = false
 local antiblind = false
 local chatplayerjoins = false
 local runservice = game:GetService("RunService")
-local attachkeybind = "h"
-local playermouse = game.Players.LocalPlayer:GetMouse()
 
 runservice.RenderStepped:Connect(function()
 if antiblind == true then
@@ -126,8 +124,6 @@ if string.sub(msg:lower(), 0, 9) == prefix.."cmds" then
    print("unantik -- disables antikill")
    print("antib -- makes you not get blinded")
    print("unantib -- disables antiblind")
-   print("---------------------KEYBINDS--------------------------")
-   print("h -- attaches to part")
    print("Thanks for using Exoile V1.")
    wait(0.1)
    sendnotif("Please check console for current commands.")
@@ -362,37 +358,6 @@ if chatplayerjoins == true then
 end
 wait(0.1)
 sendnotif("Chat player joins disabled.")
-end
-end)
-
-playermouse.KeyDown:Connect(function(keybind)
-   if keybind:lower() == attachkeybind then
-   wait(0.1)
-   sendnotif("Attached to part.")
-   wait(0.1)
-   if playermouse.Target then
-   local parttarget = playermouse.Target
-   function attachtopart()
-   local humanoidpart = game.Players.LocalPlayer.Character.HumanoidRootPart
-   local islooping = true
-   spawn(function()
-   while true do
-   game:GetService('RunService').Heartbeat:Wait()
-   game.Players.LocalPlayer.Character['Humanoid']:ChangeState(11)
-   humanoidpart.CFrame = target.CFrame * CFrame.new(-1*(target.Size.X/2)-(game.Players.LocalPlayer.Character['Torso'].Size.X/2), 0, 0)
-   if not looping then break end
-end)
-spawn(function()
-while looping do
-wait(0.1)
-command("unpunish me")
-end
-end)
-wait(0.20)
-looping = false
-end
-attachtopart()
-end
 end
 end)
 
