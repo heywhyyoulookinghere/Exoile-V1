@@ -381,7 +381,6 @@ playermouse.KeyDown:Connect(function(keybind)
    game.Players.LocalPlayer.Character['Humanoid']:ChangeState(11)
    humanoidpart.CFrame = target.CFrame * CFrame.new(-1*(target.Size.X/2)-(game.Players.LocalPlayer.Character['Torso'].Size.X/2), 0, 0)
    if not looping then break end
-end
 end)
 spawn(function()
 while looping do
