@@ -118,7 +118,6 @@ if string.sub(msg:lower(), 0, 9) == prefix.."cmds" then
    print("movebp -- moves the bp")
    print("regen -- regens the pads")
    print("clearlogs -- clears the logs")
-   print("findreset -- finds the resetpad")
    print("unpunish -- unpunishes you if you can't")
    print("---------------------ANTIS--------------------------")
    print("antik -- makes you reset when you die")
@@ -302,16 +301,6 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 10) == prefix.."findreset" then
-   sendnotif("Found reset.")
-   wait(0.1)
-   local playercframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-   local padcframe = game:GetService("Workspace").Terrain["_Game"].Admin.Regen.CFrame
-   playercframe = padcframe
-end
-end)
-
-game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 6) == prefix.."antik" then
 sendnotif("Antikill enabled.")
 wait(0.1)
@@ -377,7 +366,8 @@ sendnotif("Exoile V1 loaded.")
 game.Players.PlayerAdded:Connect(function(player)
 if chatplayerjoins == true then
    chat(player.Name.." has joined the server!")
-else
+end
+if chatplayerjoins == false then
    sendnotif(player.Name.." has joined the server!")
 end
 end)
