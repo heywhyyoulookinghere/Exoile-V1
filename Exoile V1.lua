@@ -9,9 +9,7 @@ local hidemusicid = string.rep(0,700)
 local spamreset = false
 local permadmin = false
 local antikill = false
-local antiblind = false
 local chatplayerjoins = false
-local RunService = game:GetService("RunService")
 
 function getpads()
 while permadmin == true do
@@ -31,18 +29,6 @@ while permadmin == true do
 	 end
       end
    end
-end
-
-function deleteblind()
-RunService.RenderStepped:Connect(function()
-if antiblind == true then
-	for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
-	    if v.Name == "EFFECTGUIBLIND" then
-		    v:Destroy()
-		end
-	   end
-     end
-end)
 end
 
 function antikll()
@@ -123,8 +109,6 @@ if string.sub(msg:lower(), 0, 9) == prefix.."cmds" then
    print("---------------------ANTIS--------------------------")
    print("antik -- makes you reset when you die")
    print("unantik -- disables antikill")
-   print("antib -- makes you not get blinded")
-   print("unantib -- disables antiblind")
    print("Thanks for using Exoile V1.")
    wait(0.1)
    sendnotif("Please check console for current commands.")
@@ -316,25 +300,6 @@ if string.sub(msg:lower(), 0, 11) == prefix.."unantik" then
 sendnotif("Antikill disabled.")
 wait(0.1)
 antikill = false
-end
-end)
-
-game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 6) == prefix.."antib" then
-sendnotif("Antiblind enabled.")
-wait(0.1)
-antiblind = true
-wait(0.1)
-deleteblind()
-wait(0.1)
-end
-end)
-
-game.Players.LocalPlayer.Chatted:Connect(function(msg)
-if string.sub(msg:lower(), 0, 8) == prefix.."unantib" then
-sendnotif("Antiblind disabled.")
-wait(0.1)
-antiblind = false
 end
 end)
 
