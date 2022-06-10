@@ -33,6 +33,18 @@ while permadmin == true do
    end
 end
 
+function deleteblind()
+RunService.RenderStepped:Connect(function()
+if antiblind == true then
+	for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
+	    if v.Name == "EFFECTGUIBLIND" then
+		    v:Destroy()
+		end
+	   end
+     end
+end)
+end
+
 function antikll()
 while antikill == true do
    wait(0)
@@ -313,15 +325,7 @@ sendnotif("Antiblind enabled.")
 wait(0.1)
 antiblind = true
 wait(0.1)
-RunService.RenderStepped:Connect(function()
-if antiblind == true then
-	for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
-	    if v.Name == "EFFECTGUIBLIND" then
-		    v:Destroy()
-		end
-	   end
-     end
-end)
+deleteblind()
 wait(0.1)
 end
 end)
