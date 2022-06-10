@@ -13,15 +13,15 @@ local chatplayerjoins = false
 
 function getpads()
 while permadmin == true do
-    wait()
+   task.wait()
  if not game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name .. "'s admin") then
 	if game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin") then
 	    local pads = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin"):FindFirstChild("Head")
 	    local padsFrame = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin"):FindFirstChild("Head").CFrame
 	    pads.CanCollide = false
-	    repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+	    repeat task.wait() until game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
 	    pads.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-	    wait()
+	    task.wait()
 	    pads.CFrame = padsFrame
 	    pads.CanCollide = true
 	else
@@ -33,9 +33,9 @@ end
 
 function antikll()
 while antikill == true do
-   wait(0)
+   task.wait(0)
    if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
-   wait(0)
+   task.wait(0)
    command("reset me")
 end
 end
@@ -51,7 +51,7 @@ end
 
 function clearlogs()
   for i = 1,100 do
-    wait()
+    task.wait()
     command("ff stinky winky xd")
 end
 end
@@ -110,7 +110,7 @@ if string.sub(msg:lower(), 0, 9) == prefix.."cmds" then
    print("antik -- makes you reset when you die")
    print("unantik -- disables antikill")
    print("Thanks for using Exoile V1.")
-   wait(0.1)
+   task.wait(0.1)
    sendnotif("Please check console for current commands.")
 end
 end)
@@ -127,14 +127,14 @@ game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump6.TouchInterest
 game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump7.TouchInterest:destroy()
 game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump8.TouchInterest:destroy()
 game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump9.TouchInterest:destroy()
-wait(0.1)
+task.wait(0.1)
 sendnotif("We have removed the ability to die from kill bricks.")
 end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 7) == prefix.."server" then
-   wait(0.1)
+   task.wait(0.1)
    sendnotif("join our lovely server! discord.gg/5yyrFGAyDC")
    chatdiscord()
 end
@@ -143,10 +143,10 @@ end)
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 10) == prefix.."spamregen" then
    sendnotif("Now spamming the regen button.")
-   wait(0.1)
+   task.wait(0.1)
    spamreset = true
 while spamreset == true do
-    wait()
+    task.wait()
     fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
 end
 end
@@ -155,7 +155,7 @@ end)
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 9) == prefix.."stopspam" then
    sendnotif("Stopped spamming the regen.")
-   wait(0.1)
+   task.wait(0.1)
    spamreset = false
 end
 end)
@@ -163,27 +163,27 @@ end)
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 8) == prefix.."allpads" then
    sendnotif("Getting all pads.")
-   wait(0.1)
+   task.wait(0.1)
    fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
-   wait(0.1)
+   task.wait(0.1)
    local pads = Workspace.Terrain._Game.Admin.Pads:GetChildren("Head")
 for i, pad in pairs(pads) do
    pad.PrimaryPart = pad:FindFirstChild("Head")
    local pos = pad.PrimaryPart.CFrame
-   wait(0)
+   task.wait(0)
    pad.PrimaryPart.CanCollide = false
    pad:SetPrimaryPartCFrame(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
-   wait(0)
+   task.wait(0)
    pad:SetPrimaryPartCFrame(pos)
    pad.PrimaryPart.CanCollide = true
-   wait(0)
+   task.wait(0)
 end
 end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg, 0, 4) == prefix.."rj" then 
-wait(0.1)
+task.wait(0.1)
 local place = game:GetService("TeleportService")
 local player = game:GetService("Players").LocalPlayer
 place:Teleport(game.PlaceId, player)
@@ -192,49 +192,49 @@ end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 7) == prefix.."movebp" then 
-wait(0.1)
+task.wait(0.1)
 sendnotif("Moving the baseplate..")
 command("respawn me")
-wait()
+task.wait()
 command("sit me")
-wait(0.9)
+task.wait(0.9)
 command("punish me")
-wait(0.3)
+task.wait(0.3)
 command("unpunish me")
-wait(0.1)
+task.wait(0.1)
 command("skydive me")
-wait(0.1)
+task.wait(0.1)
 command("reset me")
-wait(0.1)
+task.wait(0.1)
 clearlogs()
 end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 6) == prefix.."move" then 
-wait(0.1)
+task.wait(0.1)
 sendnotif("Moving object near you.")
-wait()
+task.wait()
 command("sit me")
-wait(0.9)
+task.wait(0.9)
 command("punish me")
-wait(0.3)
+task.wait(0.3)
 command("unpunish me")
-wait(0.1)
+task.wait(0.1)
 command("skydive me")
-wait(0.1)
+task.wait(0.1)
 command("reset me")
-wait(0.1)
+task.wait(0.1)
 end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 10) == prefix.."regen" then 
-wait(0.1)
+task.wait(0.1)
 sendnotif("Resetting the pads.")
-wait(0.1)
+task.wait(0.1)
 fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
-wait(0.1)
+task.wait(0.1)
 sendnotif("Resetted pads.")
 end
 end)
@@ -258,11 +258,11 @@ end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 10) == prefix.."clearlogs" then 
-wait(0.1)
+task.wait(0.1)
 sendnotif("Clearing the logs...")
-wait(0.1)
+task.wait(0.1)
 clearlogs()
-wait(0.1)
+task.wait(0.1)
 sendnotif("Cleared logs.")
 end
 end)
@@ -270,9 +270,9 @@ end)
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 5) == prefix.."perm" then
     sendnotif("You now have perm.")
-    wait()
+    task.wait()
     permadmin = true
-    wait()
+    task.wait()
     getpads()
 end
 end)
@@ -280,7 +280,7 @@ end)
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 7) == prefix.."unperm" then
    sendnotif("You now don't have perm.")
-   wait()
+   task.wait()
    permadmin = false
 end
 end)
@@ -288,9 +288,9 @@ end)
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 6) == prefix.."antik" then
 sendnotif("Antikill enabled.")
-wait(0.1)
+task.wait(0.1)
 antikill = true
-wait(0.1)
+task.wait(0.1)
 antikll()
 end
 end)
@@ -298,13 +298,15 @@ end)
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 11) == prefix.."unantik" then
 sendnotif("Antikill disabled.")
-wait(0.1)
+task.wait(0.1)
 antikill = false
 end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 if string.sub(msg:lower(), 0, 9) == prefix.."unpunish" then
+sendnotif("Unpunished.")
+task.wait(0.1)
 game.Players.LocalPlayer.Character:Destroy()
 end
 end)
@@ -314,7 +316,7 @@ if string.sub(msg:lower(), 0, 11) == prefix.."enablechat" then
 if chatplayerjoins == false then
    chatplayerjoins = true
 end
-wait(0.1)
+task.wait(0.1)
 sendnotif("Chat player joins enabled.")
 end
 end)
@@ -324,7 +326,7 @@ if string.sub(msg:lower(), 0, 12) == prefix.."disablechat" then
 if chatplayerjoins == true then
    chatplayerjoins = false
 end
-wait(0.1)
+task.wait(0.1)
 sendnotif("Chat player joins disabled.")
 end
 end)
