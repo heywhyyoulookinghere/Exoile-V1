@@ -335,7 +335,7 @@ sendnotif("Exoile V1 loaded.")
 
 game.Players.PlayerAdded:Connect(function(player)
 if chatplayerjoins == true then
-   command("h "...player.Name..." has joined the server!")
+   command("h "..player.Name.." has joined the server!")
 end
 if chatplayerjoins == false then
    sendnotif(player.Name.." has joined the server!")
